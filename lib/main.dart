@@ -14,7 +14,7 @@ import 'package:template/global/utils/global_utility.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
+  await dotenv.load(fileName: 'assets/env', isOptional: true);
   await initSDK();
   runApp(const ResumeKitApp());
 }
