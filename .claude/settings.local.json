@@ -1,0 +1,11 @@
+{
+  "enabledMcpjsonServers": [
+    "figma"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Bash(flutter --version)"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+# aaresumeTemplate — Repository Map
+
+<!-- AUTO-GENERATED:map -->
+## Navigation index
+
+- `README.md` — Project manifest / config
+- `analysis_options.yaml` — Project manifest / config
+- `doc/ARCHITECTURE.md` — Documentation
+- `doc/ATS_AI_V2.md` — Documentation
+- `doc/CARD_TEMPLATES.md` — Documentation
+- `doc/FEATURES.md` — Documentation
+- `lib/controller/initial_binding.dart` — State / flow controller — InitialBinding, dependencies
+- `lib/controller/routes.dart` — State / flow controller — JdOptimizerPage, FormStepsPage, FormStepsPage, ResumePreviewPage, ResumePreviewPage, BiodataFormPage
+- `lib/controller/theme_controller.dart` — State / flow controller — ThemeController, onInit, _applySystemUI
+- `lib/core/ai/ai_enhancement_service.dart` — Service layer — AiEnhancementService, generateSummary, enhanceExperienceBullet, suggestSkills, enhanceProject, recommendCertifications
+- `lib/core/ats/ats_analyzer_service.dart` — Service layer — AtsAnalyzerService, AtsAnalyzerService, analyze, AtsReport, _formatting, _skills
+- `lib/core/constants/ats_keywords.dart` — Constants / configuration — AtsKeywords
+- `lib/core/jd/jd_analyzer_service.dart` — Service layer — JdAnalyzerService, JdAnalyzerService, analyze, JdAnalysis, _experienceLine, _title
+- `lib/features/ats_analysis/presentation/ats_analysis_page.dart` — UI screen or page — AtsAnalysisPage, AtsAnalysisPage, _AtsAnalysisPageState, _analyze, _reanalyzeWithJd, _openOptimizer
+- `lib/features/biodata/presentation/biodata_form_page.dart` — UI screen or page — BiodataFormPage, BiodataFormPage, _BiodataFormPageState, _next, SnackBar, _back
+- `lib/features/biodata/presentation/biodata_picker_page.dart` — UI screen or page — BiodataPickerPage, BiodataPickerPage, _BiodataPickerPageState, _loadSample, _startForm, build
+- `lib/features/biodata/presentation/biodata_preview_page.dart` — UI screen or page — BiodataPreviewPage, BiodataPreviewPage, _BiodataPreviewPageState, _exportSheet, Text, SizedBox
+- `lib/features/cards/presentation/card_form_page.dart` — UI screen or page — CardFormPage, CardFormPage, _CardFormPageState, build, Scaffold, SizedBox
+- `lib/features/cards/presentation/card_picker_page.dart` — UI screen or page — CardPickerPage, CardPickerPage, _CardPickerPageState, _loadSample, _start, build
+- `lib/features/cards/presentation/card_preview_page.dart` — UI screen or page — CardPreviewPage, CardPreviewPage, _CardPreviewPageState, _exportSheet, TextStyle, SizedBox
+- `lib/features/cards/presentation/categories_page.dart` — UI screen or page — CategoriesPage, CategoriesPage, build, Scaffold, _CategoryTile, _CategoryTile
+- `lib/features/final_validation/presentation/final_ats_validation_page.dart` — UI screen or page — FinalAtsValidationPage, FinalAtsValidationPage, _FinalAtsValidationPageState, _hasQuantified, _recalculate, _download
+- `lib/features/home/presentation/home_page.dart` — UI screen or page — DocumentType, HomePage, HomePage, _HomePageState, _pickFile, _continue
+- `lib/features/jd_optimizer/presentation/jd_optimizer_page.dart` — UI screen or page — JdOptimizerPage, JdOptimizerPage, _JdOptimizerPageState, initState, dispose, _analyze
+- `lib/features/resume/presentation/form_steps_page.dart` — UI screen or page — _FormSuggestion, FormStepsPage, FormStepsPage, _FormStepsPageState, _next, SnackBar
+- `lib/features/resume/presentation/resume_preview_page.dart` — UI screen or page — ResumePreviewPage, ResumePreviewPage, _ResumePreviewPageState, _exportSheet, Text, SizedBox
+- `lib/features/resume/presentation/template_picker_page.dart` — UI screen or page — templateGridColumns, TemplatePickerPage, TemplatePickerPage, _TemplatePickerPageState, _loadSample, _startForm
+- `lib/global/constant/app_constant.dart` — Constants / configuration — AppConstant
+- `lib/global/constant/card_categories.dart` — Constants / configuration — DocCategory, DocCategory, newData, sampleData, CardCategories, byId
+- `lib/global/constant/routers_const.dart` — Constants / configuration — RoutersConst
+- `lib/global/theme/app_theme.dart` — Application source — TemplateHint, TemplateInfo, TemplateInfo, AppTheme, scoreColor, templateById
+- `lib/global/utils/biodata_pdf_generator.dart` — Application source — BiodataPdfGenerator, fileName, generate
+- `lib/global/utils/card_pdf_generator.dart` — Application source — CardPdfGenerator, fileName, generate
+- `lib/global/utils/file_import.dart` — Application source — ImportedFile, ImportedFile, FileImport, pick, ImportedFile, extractText
+- `lib/global/utils/pdf_generator.dart` — Application source — pdfTheme, PdfGenerator, fileName, generate
+- `lib/global/widgets/ai_suggestion_card.dart` — Reusable widget — AiSuggestionCard, AiSuggestionCard, build, Container, Icon, SizedBox
+- `lib/global/widgets/ats_widgets.dart` — Reusable widget — AtsScoreCard, AtsScoreCard, build, Container, SizedBox, Text
+- `lib/global/widgets/form_widgets.dart` — Reusable widget — PhotoPickerField, PhotoPickerField, _PhotoPickerFieldState, _pick, build, Padding
+- `lib/global/widgets/template_card.dart` — Reusable widget — TemplateCard, TemplateCard, build, Semantics, Icon, MiniPreview
+- `lib/global/widgets/templates/all_templates.dart` — Reusable widget — buildTemplate, ModernDarkTemplate, ModernDarkTemplate, build, Container, CleanMinimalTemplate
+- `lib/global/widgets/templates/biodata_templates.dart` — Reusable widget — BiodataFrame, BiodataTemplateSpec, BiodataTemplateSpec, toInfo, buildBiodataTemplate, GenericBiodataTemplate
+- `lib/global/widgets/templates/card_renderers.dart` — Reusable widget — buildCardTemplate, _InvitationCard, _EventPassCard, _BusinessCard, _ProfileCard, _t
+- `lib/global/widgets/templates/card_template_specs.dart` — Reusable widget — CardTemplateSpec, CardTemplateSpec, toInfo, CardCatalogue, byId, defaultTemplateId
+- `lib/global/widgets/templates/resume_template_specs.dart` — Reusable widget — ResumeHeaderVariant, ResumeTemplateSpec, ResumeTemplateSpec, toInfo, GenericResumeTemplate, GenericResumeTemplate
+- `lib/global/widgets/templates/template_base.dart` — Reusable widget — TemplateStyle, body, TextStyle, heading, TextStyle, ResumePhoto
+- `lib/main.dart` — Application entry point — main, ResumeKitApp, ResumeKitApp, build, GetMaterialApp
+- `lib/model/ai_suggestion.dart` — Domain model — SuggestionStatus, AiSuggestion
+- `lib/model/ats_report.dart` — Repository / data access — AtsSeverity, AtsIssue, AtsIssue, AtsCategoryScore, AtsCategoryScore, AtsWeights
+- `lib/model/biodata_data.dart` — Domain model — BiodataData, sample
+- `lib/model/card_data.dart` — Domain model — CardFamily, CardFieldSpec, CardFieldSpec, CardData, get, has
+- `lib/model/jd_analysis.dart` — Domain model — JdSuggestion, JdAnalysis, empty
+- `lib/model/resume_data.dart` — Domain model — Experience, TechSkillGroup, Project, Education, PersonalInfo, Certificate
+- `pubspec.yaml` — Project manifest / config
+- `test/ats_screens_test.dart` — UI screen or page — _host, main
+- `test/ats_v2_test.dart` — Application source — main
+- `test/cards_test.dart` — Application source — main, host
+- `test/import_test.dart` — Application source — makeDocx, ImportedFile, main
+- `test/photo_test.dart` — Application source — main, host
+- `test/templates_test.dart` — Application source — main, host
+- `test/widget_test.dart` — Reusable widget — main
+<!-- END AUTO-GENERATED:map -->

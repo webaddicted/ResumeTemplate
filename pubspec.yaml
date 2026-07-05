@@ -1,0 +1,88 @@
+name: template
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+  # State Management & DI
+  get: ^4.7.3
+
+  # Networking
+  dio: ^5.9.1
+  connectivity_plus: ^7.0.0
+
+  # Local Storage
+  shared_preferences: ^2.5.4
+
+  # Images & Cache
+  cached_network_image: ^3.4.1
+  flutter_cache_manager: ^3.4.1
+  image_picker: ^1.2.1
+  flutter_image_compress: ^2.4.0
+  shimmer: ^3.0.0
+
+  # Device & Platform
+  device_info_plus: ^12.3.0
+  package_info_plus: ^9.0.0
+  permission_handler: ^12.0.1
+
+  # PDF generation & printing
+  pdf: ^3.11.1
+  printing: ^5.13.4
+
+  # Utilities
+  url_launcher: ^6.3.2
+  share_plus: ^12.0.1
+  path_provider: ^2.1.5
+  intl: ^0.20.2
+  logger: ^2.6.2
+  flutter_dotenv: ^6.0.0
+
+  # Responsive UI
+  responsive_framework: ^1.5.1
+  file_picker: ^10.3.10
+  syncfusion_flutter_pdf: ^33.2.10
+  archive: ^4.0.9
+  image: ^4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - .env
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Nunito-Black.ttf
+          weight: 900
+
