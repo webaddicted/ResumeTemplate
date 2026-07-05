@@ -3,6 +3,7 @@ import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/features/jd_optimizer/data/jd_analyzer_service.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/ats_widgets.dart';
 import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
 import 'package:template/features/resume/domain/resume_data_model.dart';
@@ -127,16 +128,20 @@ class _JdOptimizerPageState extends BaseState<JdOptimizerPage> {
             child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
               children: [
-                const Text(
+                Text(
                   'Paste the job description',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                  style: AppTextStyle.headlineMedium.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: AppTheme.textPrimary,
+                  ),
                 ),
                 const SizedBox(height: 4),
-                const Text(
+                Text(
                   'We extract the required skills and keywords, then show what '
                   'your resume is missing.',
-                  style:
-                      TextStyle(fontSize: 13, color: AppTheme.textSecondary),
+                  style: AppTextStyle.bodyMedium.copyWith(
+                    color: AppTheme.textSecondary,
+                  ),
                 ),
                 const SizedBox(height: 12),
                 TextField(
@@ -161,16 +166,19 @@ class _JdOptimizerPageState extends BaseState<JdOptimizerPage> {
                   JdMatchSummary(jd: jd),
                   if (jd.suggestions.isNotEmpty) ...[
                     const SizedBox(height: 20),
-                    const Text(
+                    Text(
                       'Suggested additions',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                      style: AppTextStyle.headlineMedium.copyWith(
+                        fontWeight: FontWeight.w800,
+                        color: AppTheme.textPrimary,
+                      ),
                     ),
                     const SizedBox(height: 4),
-                    const Text(
+                    Text(
                       'Accept only what is genuinely true for you.',
-                      style: TextStyle(
-                          fontSize: 12.5, color: AppTheme.textSecondary),
+                      style: AppTextStyle.bodySmall.copyWith(
+                        color: AppTheme.textSecondary,
+                      ),
                     ),
                     const SizedBox(height: 10),
                     for (var i = 0; i < jd.suggestions.length; i++)
@@ -266,8 +274,7 @@ class _SuggestionCard extends StatelessWidget {
                 ),
                 child: Text(
                   suggestion.section,
-                  style: const TextStyle(
-                    fontSize: 10.5,
+                  style: AppTextStyle.labelSmall.copyWith(
                     fontWeight: FontWeight.w700,
                     color: AppTheme.accent,
                   ),
@@ -285,8 +292,7 @@ class _SuggestionCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             suggestion.text,
-            style: TextStyle(
-              fontSize: 13.5,
+            style: AppTextStyle.bodyMedium.copyWith(
               height: 1.4,
               decoration: rejected ? TextDecoration.lineThrough : null,
               color: rejected ? AppTheme.textSecondary : AppTheme.textPrimary,

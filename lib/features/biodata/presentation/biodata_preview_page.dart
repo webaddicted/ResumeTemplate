@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/utils/biodata_pdf_generator.dart';
 import 'package:template/global/widgets/templates/biodata_templates.dart';
 import 'package:template/features/biodata/domain/biodata_data_model.dart';
@@ -44,10 +45,13 @@ class _BiodataPreviewPageState extends BaseState<BiodataPreviewPage> {
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              const Text(
+              Text(
                 'Export Biodata',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                style: AppTextStyle.headlineLarge.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: AppTheme.textPrimary,
+                ),
               ),
               const SizedBox(height: 18),
               ElevatedButton.icon(
@@ -125,9 +129,7 @@ class _BiodataPreviewPageState extends BaseState<BiodataPreviewPage> {
             const Text('Preview'),
             Text(
               templateName,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+              style: AppTextStyle.labelMedium.copyWith(
                 color: AppTheme.textSecondary,
               ),
             ),
@@ -228,10 +230,7 @@ class _BiodataPreviewPageState extends BaseState<BiodataPreviewPage> {
                                       t.name,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 11.5,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: AppTextStyle.labelMedium,
                                     ),
                                   ],
                                 ),

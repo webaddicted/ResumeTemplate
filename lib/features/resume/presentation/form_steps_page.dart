@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:template/features/resume/data/ai_enhancement_service.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/ai_suggestion_card.dart';
 import 'package:template/global/widgets/form_widgets.dart';
 import 'package:template/features/resume/domain/ai_suggestion_model.dart';
@@ -499,13 +500,11 @@ class _FormStepsPageState extends BaseState<FormStepsPage> {
           value: e.location,
           onChanged: (v) => e.location = v,
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 2, bottom: 6),
+        Padding(
+          padding: const EdgeInsets.only(left: 2, bottom: 6),
           child: Text(
             'Achievements / responsibilities',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
+            style: AppTextStyle.titleSmall.copyWith(
               color: AppTheme.textSecondary,
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/templates/biodata_templates.dart';
 import 'package:template/global/widgets/templates/resume_template_specs.dart';
 
@@ -193,30 +194,42 @@ class AppTheme {
       scaffoldBackgroundColor: bg,
     );
 
-    final textTheme = base.textTheme.apply(
-      bodyColor: textPrimary,
-      displayColor: textPrimary,
+    final textTheme = TextTheme(
+      displayLarge: AppTextStyle.displayLarge.copyWith(color: textPrimary),
+      displayMedium: AppTextStyle.displayMedium.copyWith(color: textPrimary),
+      displaySmall: AppTextStyle.displaySmall.copyWith(color: textPrimary),
+      headlineLarge: AppTextStyle.headlineLarge.copyWith(color: textPrimary),
+      headlineMedium: AppTextStyle.headlineMedium.copyWith(color: textPrimary),
+      headlineSmall: AppTextStyle.headlineSmall.copyWith(color: textPrimary),
+      titleLarge: AppTextStyle.titleLarge.copyWith(color: textPrimary),
+      titleMedium: AppTextStyle.titleMedium.copyWith(color: textPrimary),
+      titleSmall: AppTextStyle.titleSmall.copyWith(color: textPrimary),
+      bodyLarge: AppTextStyle.bodyLarge.copyWith(color: textPrimary),
+      bodyMedium: AppTextStyle.bodyMedium.copyWith(color: textPrimary),
+      bodySmall: AppTextStyle.bodySmall.copyWith(color: textSecondary),
+      labelLarge: AppTextStyle.labelLarge.copyWith(color: textPrimary),
+      labelMedium: AppTextStyle.labelMedium.copyWith(color: textSecondary),
+      labelSmall: AppTextStyle.labelSmall.copyWith(color: textSecondary),
     );
 
     return base.copyWith(
       textTheme: textTheme,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: bg,
         elevation: 0,
         centerTitle: false,
-        titleTextStyle: TextStyle(
+        titleTextStyle: AppTextStyle.headlineLarge.copyWith(
           fontFamily: fontFamily,
-          fontSize: 18,
           fontWeight: FontWeight.w700,
           color: textPrimary,
         ),
-        iconTheme: IconThemeData(color: textPrimary),
+        iconTheme: const IconThemeData(color: textPrimary),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: surfaceAlt,
-        labelStyle: const TextStyle(color: textSecondary),
-        hintStyle: const TextStyle(color: textSecondary),
+        labelStyle: AppTextStyle.inputLabel.copyWith(color: textSecondary),
+        hintStyle: AppTextStyle.inputHint.copyWith(color: textSecondary),
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         border: OutlineInputBorder(
@@ -240,11 +253,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: const TextStyle(
-            fontFamily: fontFamily,
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-          ),
+          textStyle: AppTextStyle.buttonText.copyWith(fontFamily: fontFamily),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -255,10 +264,9 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: const TextStyle(
+          textStyle: AppTextStyle.titleMedium.copyWith(
             fontFamily: fontFamily,
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
+            color: textPrimary,
           ),
         ),
       ),
@@ -270,8 +278,10 @@ class AppTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         backgroundColor: surfaceAlt,
-        contentTextStyle:
-            const TextStyle(fontFamily: fontFamily, color: textPrimary),
+        contentTextStyle: AppTextStyle.bodyMedium.copyWith(
+          fontFamily: fontFamily,
+          color: textPrimary,
+        ),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),

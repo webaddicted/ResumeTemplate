@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 
 /// One template card with a miniature layout preview — shared by the
 /// resume and biodata template pickers.
@@ -54,10 +55,7 @@ class TemplateCard extends StatelessWidget {
                         info.name,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: AppTextStyle.titleMedium,
                       ),
                     ),
                     if (selected)

@@ -5,6 +5,7 @@ import 'package:printing/printing.dart';
 import 'package:template/features/ats_analysis/data/ats_analyzer_service.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/utils/pdf_generator.dart';
 import 'package:template/global/widgets/ats_widgets.dart';
 import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
@@ -115,9 +116,12 @@ class _FinalAtsValidationPageState extends BaseState<FinalAtsValidationPage> {
                 const SizedBox(height: 18),
                 AtsCategoryBars(report: _report),
                 const SizedBox(height: 22),
-                const Text(
+                Text(
                   'Improvements Applied',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                  style: AppTextStyle.headlineMedium.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: AppTheme.textPrimary,
+                  ),
                 ),
                 const SizedBox(height: 10),
                 for (final item in _applied)
@@ -134,9 +138,12 @@ class _FinalAtsValidationPageState extends BaseState<FinalAtsValidationPage> {
                   ),
                 if (!passed) ...[
                   const SizedBox(height: 14),
-                  const Text(
+                  Text(
                     'Still to fix',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                    style: AppTextStyle.headlineMedium.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.textPrimary,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   for (final issue in _report.sortedIssues.take(4))
@@ -205,7 +212,7 @@ class _FinalAtsValidationPageState extends BaseState<FinalAtsValidationPage> {
                                   'Download unlocks at ATS ≥ '
                                   '${AtsReport.passThreshold}. '
                                   'You are at ${_report.score}%.',
-                                  style: const TextStyle(fontSize: 12.5),
+                                  style: AppTextStyle.bodySmall,
                                 ),
                               ),
                             ],

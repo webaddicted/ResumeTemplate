@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:template/features/resume/domain/ai_suggestion_model.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_style.dart';
 
 /// Inline AI suggestion shown above a form section, with the
 /// Accept / Edit / Dismiss workflow and status tracking.
@@ -59,8 +60,7 @@ class AiSuggestionCard extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 'AI Suggestion · ${suggestion.section}',
-                style: const TextStyle(
-                  fontSize: 12,
+                style: AppTextStyle.titleSmall.copyWith(
                   fontWeight: FontWeight.w700,
                   color: AppTheme.accent,
                 ),
@@ -73,8 +73,7 @@ class AiSuggestionCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             suggestion.suggested,
-            style: TextStyle(
-              fontSize: 13.5,
+            style: AppTextStyle.bodyMedium.copyWith(
               height: 1.45,
               decoration: dismissed ? TextDecoration.lineThrough : null,
               color: dismissed ? AppTheme.textSecondary : AppTheme.textPrimary,
@@ -84,8 +83,7 @@ class AiSuggestionCard extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               suggestion.rationale,
-              style: const TextStyle(
-                fontSize: 11.5,
+              style: AppTextStyle.bodySmall.copyWith(
                 fontStyle: FontStyle.italic,
                 color: AppTheme.textSecondary,
               ),
@@ -152,8 +150,7 @@ class _StatusChip extends StatelessWidget {
       ),
       child: Text(
         status.label,
-        style: TextStyle(
-          fontSize: 10.5,
+        style: AppTextStyle.labelSmall.copyWith(
           fontWeight: FontWeight.w700,
           color: color,
         ),

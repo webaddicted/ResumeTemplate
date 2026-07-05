@@ -5,6 +5,7 @@ import 'package:template/features/jd_optimizer/data/jd_analyzer_service.dart';
 import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/ats_widgets.dart';
 import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
 import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
@@ -73,20 +74,18 @@ class _AtsAnalysisPageState extends BaseState<AtsAnalysisPage> {
                 const SizedBox(height: 22),
                 Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Text(
                         'Issues Found',
-                        style: TextStyle(
-                          fontSize: 17,
+                        style: AppTextStyle.headlineLarge.copyWith(
                           fontWeight: FontWeight.w800,
+                          color: AppTheme.textPrimary,
                         ),
                       ),
                     ),
                     Text(
                       '${issues.length}',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
+                      style: AppTextStyle.titleLarge.copyWith(
                         color: AppTheme.textSecondary,
                       ),
                     ),

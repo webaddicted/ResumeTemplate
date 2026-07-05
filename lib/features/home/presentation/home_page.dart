@@ -3,6 +3,7 @@ import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/utils/file_import.dart';
 
 enum DocumentType { resume, biodata }
@@ -106,16 +107,18 @@ class _HomePageState extends BaseState<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'What would you like to create?',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+                    style: AppTextStyle.displayMedium.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.textPrimary,
+                    ),
                   ),
                   const SizedBox(height: 6),
-                  const Text(
+                  Text(
                     'Your data stays on this device — PDFs are generated '
                     'offline.',
-                    style: TextStyle(
-                      fontSize: 14,
+                    style: AppTextStyle.bodyMedium.copyWith(
                       color: AppTheme.textSecondary,
                     ),
                   ),
@@ -135,16 +138,18 @@ class _HomePageState extends BaseState<HomePage> {
                     cards[1],
                   ],
                   const SizedBox(height: 28),
-                  const Text(
+                  Text(
                     'Auto-fill from an existing file',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                    style: AppTextStyle.headlineMedium.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.textPrimary,
+                    ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
+                  Text(
                     'Optional — attach a PDF or DOCX and we will pre-fill the '
                     'form from it. You can review everything before export.',
-                    style: TextStyle(
-                      fontSize: 13,
+                    style: AppTextStyle.bodyMedium.copyWith(
                       color: AppTheme.textSecondary,
                     ),
                   ),
@@ -219,22 +224,18 @@ class _HomePageState extends BaseState<HomePage> {
                             ),
                     ),
                     const SizedBox(width: 14),
-                    const Expanded(
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Choose PDF or DOCX',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: AppTextStyle.titleLarge,
                           ),
-                          SizedBox(height: 2),
+                          const SizedBox(height: 2),
                           Text(
                             'No file? Skip this — you can type everything in.',
-                            style: TextStyle(
-                              fontSize: 12.5,
+                            style: AppTextStyle.bodySmall.copyWith(
                               color: AppTheme.textSecondary,
                             ),
                           ),
@@ -268,15 +269,11 @@ class _HomePageState extends BaseState<HomePage> {
                           file.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 14.5,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: AppTextStyle.titleLarge,
                         ),
-                        const Text(
+                        Text(
                           'Will be used to auto-fill the form',
-                          style: TextStyle(
-                            fontSize: 12,
+                          style: AppTextStyle.bodySmall.copyWith(
                             color: AppTheme.textSecondary,
                           ),
                         ),
@@ -354,16 +351,15 @@ class _ModeCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        fontSize: 16.5,
+                      style: AppTextStyle.headlineMedium.copyWith(
                         fontWeight: FontWeight.w800,
+                        color: AppTheme.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      style: const TextStyle(
-                        fontSize: 12.5,
+                      style: AppTextStyle.bodySmall.copyWith(
                         color: AppTheme.textSecondary,
                       ),
                     ),

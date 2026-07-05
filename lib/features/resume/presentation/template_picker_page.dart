@@ -3,6 +3,7 @@ import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/template_card.dart';
 import 'package:template/features/resume/domain/resume_data_model.dart';
 
@@ -64,13 +65,13 @@ class _TemplatePickerPageState extends BaseState<TemplatePickerPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
                   child: Text(
                     'Choose a template',
-                    style: TextStyle(
-                      fontSize: 22,
+                    style: AppTextStyle.displaySmall.copyWith(
                       fontWeight: FontWeight.w800,
+                      color: AppTheme.textPrimary,
                     ),
                   ),
                 ),
@@ -79,8 +80,7 @@ class _TemplatePickerPageState extends BaseState<TemplatePickerPage> {
                   child: Text(
                     '${AppTheme.templates.length} designs — switch any time '
                     'without losing your data.',
-                    style: const TextStyle(
-                      fontSize: 13.5,
+                    style: AppTextStyle.bodyMedium.copyWith(
                       color: AppTheme.textSecondary,
                     ),
                   ),

@@ -5,6 +5,7 @@ import 'package:template/features/resume/presentation/template_picker_page.dart'
     show templateGridColumns;
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/template_card.dart';
 import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
@@ -57,13 +58,13 @@ class _BiodataPickerPageState extends BaseState<BiodataPickerPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20, 8, 20, 4),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
                   child: Text(
                     'Choose a biodata style',
-                    style: TextStyle(
-                      fontSize: 22,
+                    style: AppTextStyle.displaySmall.copyWith(
                       fontWeight: FontWeight.w800,
+                      color: AppTheme.textPrimary,
                     ),
                   ),
                 ),
@@ -72,8 +73,7 @@ class _BiodataPickerPageState extends BaseState<BiodataPickerPage> {
                   child: Text(
                     '${AppTheme.biodataTemplates.length} designs — switch any '
                     'time without losing your data.',
-                    style: const TextStyle(
-                      fontSize: 13.5,
+                    style: AppTextStyle.bodyMedium.copyWith(
                       color: AppTheme.textSecondary,
                     ),
                   ),

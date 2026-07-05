@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/widgets/template_card.dart';
 import 'package:template/global/widgets/templates/card_template_specs.dart';
 
@@ -68,8 +69,9 @@ class _CardPickerPageState extends BaseState<CardPickerPage> {
                   child: Text(
                     '${infos.length} designs — switch any time without losing '
                     'your details.',
-                    style: const TextStyle(
-                        fontSize: 13.5, color: AppTheme.textSecondary),
+                    style: AppTextStyle.bodyMedium.copyWith(
+                      color: AppTheme.textSecondary,
+                    ),
                   ),
                 ),
                 Expanded(

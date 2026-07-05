@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 
 /// Circular profile-photo picker used in both form wizards.
 /// Uses the system photo picker (no extra permissions needed) and keeps
@@ -97,15 +98,14 @@ class _PhotoPickerFieldState extends State<PhotoPickerField> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Profile Photo',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                  style: AppTextStyle.titleLarge,
                 ),
                 const SizedBox(height: 2),
-                const Text(
+                Text(
                   'Optional — shown in the header of your document.',
-                  style: TextStyle(
-                    fontSize: 12.5,
+                  style: AppTextStyle.bodySmall.copyWith(
                     color: AppTheme.textSecondary,
                   ),
                 ),
@@ -171,9 +171,7 @@ class FormField2 extends StatelessWidget {
             child: Text.rich(
               TextSpan(
                 text: label,
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
+                style: AppTextStyle.titleSmall.copyWith(
                   color: AppTheme.textSecondary,
                 ),
                 children: [
@@ -251,7 +249,7 @@ class _StatefulFieldState extends State<_StatefulField> {
         maxLines: widget.maxLines,
         keyboardType: widget.keyboardType,
         onChanged: widget.onChanged,
-        style: const TextStyle(fontSize: 15, color: AppTheme.textPrimary),
+        style: AppTextStyle.inputText.copyWith(color: AppTheme.textPrimary),
         decoration: InputDecoration(hintText: widget.hint),
       ),
     );
@@ -285,8 +283,7 @@ class SectionHeader extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 17,
+                style: AppTextStyle.headlineLarge.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppTheme.textPrimary,
                 ),
@@ -298,8 +295,7 @@ class SectionHeader extends StatelessWidget {
               padding: const EdgeInsets.only(left: 14, top: 4),
               child: Text(
                 subtitle!,
-                style: const TextStyle(
-                  fontSize: 13,
+                style: AppTextStyle.bodyMedium.copyWith(
                   color: AppTheme.textSecondary,
                 ),
               ),
@@ -342,9 +338,7 @@ class EntryCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
+                  style: AppTextStyle.titleLarge.copyWith(
                     color: AppTheme.textSecondary,
                   ),
                 ),
@@ -448,8 +442,7 @@ class StepIndicator extends StatelessWidget {
                       size: 16, color: Colors.white)
                   : Text(
                       '$step',
-                      style: TextStyle(
-                        fontSize: 13,
+                      style: AppTextStyle.titleSmall.copyWith(
                         fontWeight: FontWeight.w700,
                         color: isActive
                             ? Colors.white
@@ -462,9 +455,7 @@ class StepIndicator extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           'Step $current of $total — ${titles[current - 1]}',
-          style: const TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
+          style: AppTextStyle.titleSmall.copyWith(
             color: AppTheme.textSecondary,
           ),
         ),

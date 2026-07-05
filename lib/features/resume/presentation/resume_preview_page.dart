@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/utils/pdf_generator.dart';
 import 'package:template/global/widgets/templates/all_templates.dart';
 import 'package:template/features/resume/domain/resume_data_model.dart';
@@ -44,10 +45,13 @@ class _ResumePreviewPageState extends BaseState<ResumePreviewPage> {
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              const Text(
+              Text(
                 'Export Resume',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                style: AppTextStyle.headlineLarge.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: AppTheme.textPrimary,
+                ),
               ),
               const SizedBox(height: 18),
               ElevatedButton.icon(
@@ -125,9 +129,7 @@ class _ResumePreviewPageState extends BaseState<ResumePreviewPage> {
             const Text('Preview'),
             Text(
               templateName,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+              style: AppTextStyle.labelMedium.copyWith(
                 color: AppTheme.textSecondary,
               ),
             ),
@@ -234,10 +236,7 @@ class _ResumePreviewPageState extends BaseState<ResumePreviewPage> {
                                       t.name,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 11.5,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: AppTextStyle.labelMedium,
                                     ),
                                   ],
                                 ),

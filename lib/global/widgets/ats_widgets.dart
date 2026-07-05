@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
 import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_style.dart';
 
 /// Big circular ATS score dial, coloured by band (red/orange/green).
 class AtsScoreCard extends StatelessWidget {
@@ -45,8 +46,7 @@ class AtsScoreCard extends StatelessWidget {
                   children: [
                     Text(
                       '$score%',
-                      style: TextStyle(
-                        fontSize: 24,
+                      style: AppTextStyle.displayMedium.copyWith(
                         fontWeight: FontWeight.w900,
                         color: color,
                       ),
@@ -61,15 +61,16 @@ class AtsScoreCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'ATS Score',
-                  style: TextStyle(fontSize: 13, color: AppTheme.textSecondary),
+                  style: AppTextStyle.bodyMedium.copyWith(
+                    color: AppTheme.textSecondary,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   report.band,
-                  style: TextStyle(
-                    fontSize: 20,
+                  style: AppTextStyle.displaySmall.copyWith(
                     fontWeight: FontWeight.w800,
                     color: color,
                   ),
@@ -80,8 +81,7 @@ class AtsScoreCard extends StatelessWidget {
                       (report.isDownloadable
                           ? 'Ready to download — meets the 90+ ATS target.'
                           : 'Aim for 90+ to maximise interview callbacks.'),
-                  style: const TextStyle(
-                    fontSize: 12.5,
+                  style: AppTextStyle.bodySmall.copyWith(
                     color: AppTheme.textSecondary,
                   ),
                 ),
@@ -113,9 +113,9 @@ class AtsCategoryBars extends StatelessWidget {
                   width: 92,
                   child: Text(
                     c.name,
-                    style: const TextStyle(
-                      fontSize: 12.5,
+                    style: AppTextStyle.labelLarge.copyWith(
                       fontWeight: FontWeight.w600,
+                      color: AppTheme.textPrimary,
                     ),
                   ),
                 ),
@@ -137,8 +137,7 @@ class AtsCategoryBars extends StatelessWidget {
                   child: Text(
                     '${c.score.round()} /${c.weight}',
                     textAlign: TextAlign.right,
-                    style: const TextStyle(
-                      fontSize: 11.5,
+                    style: AppTextStyle.labelMedium.copyWith(
                       color: AppTheme.textSecondary,
                     ),
                   ),
@@ -183,10 +182,7 @@ class AtsIssueTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   issue.title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: AppTextStyle.titleLarge,
                 ),
               ),
               Container(
@@ -198,8 +194,7 @@ class AtsIssueTile extends StatelessWidget {
                 ),
                 child: Text(
                   issue.severity.label,
-                  style: TextStyle(
-                    fontSize: 10.5,
+                  style: AppTextStyle.labelSmall.copyWith(
                     fontWeight: FontWeight.w700,
                     color: _color,
                   ),
@@ -217,8 +212,7 @@ class AtsIssueTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   issue.fix,
-                  style: const TextStyle(
-                    fontSize: 12.5,
+                  style: AppTextStyle.bodySmall.copyWith(
                     color: AppTheme.textSecondary,
                   ),
                 ),
@@ -246,8 +240,7 @@ class JdMatchSummary extends StatelessWidget {
           children: [
             Text(
               'Job match: ${jd.matchScore}%',
-              style: TextStyle(
-                fontSize: 14,
+              style: AppTextStyle.titleLarge.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppTheme.scoreColor(jd.matchScore),
               ),
@@ -256,8 +249,12 @@ class JdMatchSummary extends StatelessWidget {
         ),
         if (jd.missingKeywords.isNotEmpty) ...[
           const SizedBox(height: 8),
-          const Text('Missing keywords',
-              style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text(
+            'Missing keywords',
+            style: AppTextStyle.bodySmall.copyWith(
+              color: AppTheme.textSecondary,
+            ),
+          ),
           const SizedBox(height: 6),
           Wrap(
             spacing: 6,
@@ -275,7 +272,9 @@ class JdMatchSummary extends StatelessWidget {
                   ),
                   child: Text(
                     k,
-                    style: const TextStyle(fontSize: 11, color: AppTheme.danger),
+                    style: AppTextStyle.labelMedium.copyWith(
+                      color: AppTheme.danger,
+                    ),
                   ),
                 ),
             ],

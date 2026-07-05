@@ -1,26 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:template/global/constant/color_const.dart';
 
 class AppTextStyle {
-  // Modern Typography Scale - Further Reduced sizes
-  static const double fontSize8 = kIsWeb ? 4 : 7;
-  static const double fontSize10 = kIsWeb ? 6 : 9;
-  static const double fontSize12 = kIsWeb ? 8 : 11;
-  static const double fontSize14 = kIsWeb ? 10 : 13;
-  static const double fontSize16 = kIsWeb ? 12 : 15;
-  static const double fontSize18 = kIsWeb ? 14 : 17;
-  static const double fontSize20 = kIsWeb ? 16 : 19;
-  static const double fontSize24 = kIsWeb ? 20 : 23;
-  static const double fontSize28 = kIsWeb ? 24 : 27;
-  static const double fontSize32 = kIsWeb ? 28 : 31;
-  static const double fontSize36 = kIsWeb ? 32 : 35;
-  static const double fontSize48 = kIsWeb ? 44 : 47;
+  // Standard font sizes — mandatory on every screen (flutter-ai-ui-skill)
+  // 14px: body, titles, buttons, inputs, nav | 12px: captions, subtitles, small labels
+  // 16–18px: section/page headers only | 20–32px: hero/splash only
+  static const double fontSize12 = 12;
+  static const double fontSize14 = 14;
+  static const double fontSize16 = 16;
+  static const double fontSize18 = 18;
+  static const double fontSize20 = 20;
+  static const double fontSize24 = 24;
+  static const double fontSize32 = 32;
 
-  // Display Styles
+  // Display Styles — hero / splash only
   static TextStyle displayLarge = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize48,
+    fontSize: fontSize32,
     fontWeight: FontWeight.w700,
     letterSpacing: -0.5,
     height: 1.1,
@@ -28,7 +24,7 @@ class AppTextStyle {
 
   static TextStyle displayMedium = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize36,
+    fontSize: fontSize24,
     fontWeight: FontWeight.w600,
     letterSpacing: -0.25,
     height: 1.2,
@@ -36,25 +32,24 @@ class AppTextStyle {
 
   static TextStyle displaySmall = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize28,
+    fontSize: fontSize20,
     fontWeight: FontWeight.w600,
     letterSpacing: 0,
     height: 1.3,
   );
 
-  // Headline Styles
+  // Headline Styles — page / section headers
   static TextStyle headlineLarge = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize24,
+    fontSize: fontSize18,
     fontWeight: FontWeight.w600,
     letterSpacing: 0,
     height: 1.3,
   );
 
-  
   static TextStyle headlineMedium = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize20,
+    fontSize: fontSize16,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
     height: 1.4,
@@ -62,16 +57,16 @@ class AppTextStyle {
 
   static TextStyle headlineSmall = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize18,
+    fontSize: fontSize16,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
     height: 1.4,
   );
 
-  // Title Styles
+  // Title Styles — 14px (body tier: list titles, dialog labels, card headers)
   static TextStyle titleLarge = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize16,
+    fontSize: fontSize14,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
     height: 1.5,
@@ -96,9 +91,9 @@ class AppTextStyle {
   // Body Styles
   static TextStyle bodyLarge = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize16,
+    fontSize: fontSize14,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.5,
+    letterSpacing: 0.25,
     height: 1.5,
   );
 
@@ -121,7 +116,7 @@ class AppTextStyle {
   // Label Styles
   static TextStyle labelLarge = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize14,
+    fontSize: fontSize12,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
     height: 1.4,
@@ -137,7 +132,7 @@ class AppTextStyle {
 
   static TextStyle labelSmall = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize10,
+    fontSize: fontSize12,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
     height: 1.2,
@@ -146,13 +141,13 @@ class AppTextStyle {
   // Legacy styles for backward compatibility
   static TextStyle normalBlack8 = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize8,
+    fontSize: fontSize12,
     fontWeight: FontWeight.normal,
   );
 
   static TextStyle normalBlack10 = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize10,
+    fontSize: fontSize12,
     fontWeight: FontWeight.normal,
   );
 
@@ -171,7 +166,7 @@ class AppTextStyle {
   // Specialized Styles
   static TextStyle caption = TextStyle(
     color: ColorConst.greyColor,
-    fontSize: fontSize10,
+    fontSize: fontSize12,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.4,
     height: 1.2,
@@ -179,7 +174,7 @@ class AppTextStyle {
 
   static TextStyle overline = TextStyle(
     color: ColorConst.greyColor,
-    fontSize: fontSize8,
+    fontSize: fontSize12,
     fontWeight: FontWeight.w500,
     letterSpacing: 1.5,
     height: 1.0,
@@ -197,7 +192,7 @@ class AppTextStyle {
   // Card Title Styles
   static TextStyle cardTitle = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize16,
+    fontSize: fontSize14,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
     height: 1.4,
@@ -214,7 +209,7 @@ class AppTextStyle {
   // Navigation Styles
   static TextStyle navTitle = TextStyle(
     color: ColorConst.blackColor,
-    fontSize: fontSize18,
+    fontSize: fontSize14,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.15,
     height: 1.3,

@@ -5,6 +5,7 @@ import 'package:printing/printing.dart';
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 import 'package:template/global/utils/card_pdf_generator.dart';
 import 'package:template/global/widgets/templates/card_renderers.dart';
 import 'package:template/global/widgets/templates/card_template_specs.dart';
@@ -50,8 +51,10 @@ class _CardPreviewPageState extends BaseState<CardPreviewPage> {
               Text(
                 'Export ${_cat.label}',
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                style: AppTextStyle.headlineLarge.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: AppTheme.textPrimary,
+                ),
               ),
               const SizedBox(height: 18),
               ElevatedButton.icon(
@@ -122,9 +125,7 @@ class _CardPreviewPageState extends BaseState<CardPreviewPage> {
             const Text('Preview'),
             Text(
               spec.name,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+              style: AppTextStyle.labelMedium.copyWith(
                 color: AppTheme.textSecondary,
               ),
             ),
@@ -222,10 +223,7 @@ class _CardPreviewPageState extends BaseState<CardPreviewPage> {
                                       t.name,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 11.5,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: AppTextStyle.labelMedium,
                                     ),
                                   ],
                                 ),

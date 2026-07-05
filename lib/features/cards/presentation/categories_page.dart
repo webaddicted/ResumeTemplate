@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
+import 'package:template/global/theme/text_style.dart';
 
 /// Browse all card document types, grouped by section (Invitations,
 /// Business, Events, Profiles). Tapping one opens its template picker.
@@ -34,9 +35,9 @@ class CategoriesPage extends BaseStatelessWidget {
                     padding: const EdgeInsets.fromLTRB(4, 14, 4, 10),
                     child: Text(
                       entry.key,
-                      style: const TextStyle(
-                        fontSize: 18,
+                      style: AppTextStyle.headlineLarge.copyWith(
                         fontWeight: FontWeight.w800,
+                        color: AppTheme.textPrimary,
                       ),
                     ),
                   ),
@@ -103,10 +104,7 @@ class _CategoryTile extends StatelessWidget {
                 category.label,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: AppTextStyle.titleLarge,
               ),
             ],
           ),
