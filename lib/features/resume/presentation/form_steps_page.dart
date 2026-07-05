@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
-import 'package:template/core/ai/ai_enhancement_service.dart';
+import 'package:template/features/resume/data/ai_enhancement_service.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/ai_suggestion_card.dart';
 import 'package:template/global/widgets/form_widgets.dart';
-import 'package:template/model/ai_suggestion.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/ai_suggestion_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Binds an [AiSuggestion] to the action that applies its text to the model.
 class _FormSuggestion {
@@ -16,7 +17,7 @@ class _FormSuggestion {
 }
 
 /// Screens 2–7 — the 6-step data collection wizard.
-class FormStepsPage extends StatefulWidget {
+class FormStepsPage extends BaseStatefulWidget {
   const FormStepsPage({super.key, required this.data, this.initialStep = 1});
 
   final ResumeData data;
@@ -26,7 +27,7 @@ class FormStepsPage extends StatefulWidget {
   State<FormStepsPage> createState() => _FormStepsPageState();
 }
 
-class _FormStepsPageState extends State<FormStepsPage> {
+class _FormStepsPageState extends BaseState<FormStepsPage> {
   static const _titles = [
     'Personal & Contact',
     'Summary & Expertise',
@@ -226,7 +227,7 @@ class _FormStepsPageState extends State<FormStepsPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titles[_step - 1]),

@@ -16,9 +16,9 @@ import 'package:template/features/resume/presentation/template_picker_page.dart'
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/widgets/templates/card_template_specs.dart';
-import 'package:template/model/biodata_data.dart';
-import 'package:template/model/card_data.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
+import 'package:template/features/cards/domain/card_data_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 List<GetPage> routes() => [
       GetPage(name: RoutersConst.home, page: () => const HomePage()),

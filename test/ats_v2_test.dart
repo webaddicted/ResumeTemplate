@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template/core/ai/ai_enhancement_service.dart';
-import 'package:template/core/ats/ats_analyzer_service.dart';
-import 'package:template/core/jd/jd_analyzer_service.dart';
-import 'package:template/model/ats_report.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/data/ai_enhancement_service.dart';
+import 'package:template/features/ats_analysis/data/ats_analyzer_service.dart';
+import 'package:template/features/jd_optimizer/data/jd_analyzer_service.dart';
+import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 void main() {
   const ats = AtsAnalyzerService();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:template/global/constant/card_categories.dart';
@@ -7,10 +8,10 @@ import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/utils/card_pdf_generator.dart';
 import 'package:template/global/widgets/templates/card_renderers.dart';
 import 'package:template/global/widgets/templates/card_template_specs.dart';
-import 'package:template/model/card_data.dart';
+import 'package:template/features/cards/domain/card_data_model.dart';
 
 /// Live card preview + design switcher + PDF export.
-class CardPreviewPage extends StatefulWidget {
+class CardPreviewPage extends BaseStatefulWidget {
   const CardPreviewPage({super.key, required this.data});
 
   final CardData data;
@@ -19,7 +20,7 @@ class CardPreviewPage extends StatefulWidget {
   State<CardPreviewPage> createState() => _CardPreviewPageState();
 }
 
-class _CardPreviewPageState extends State<CardPreviewPage> {
+class _CardPreviewPageState extends BaseState<CardPreviewPage> {
   bool _switcherVisible = false;
   bool _exporting = false;
 
@@ -109,7 +110,7 @@ class _CardPreviewPageState extends State<CardPreviewPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final spec = CardCatalogue.byId(d.templateId);
     final infos = CardCatalogue.infosFor(d.categoryId);
 

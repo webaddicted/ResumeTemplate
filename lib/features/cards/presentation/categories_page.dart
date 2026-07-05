@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateless_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
@@ -6,11 +7,11 @@ import 'package:template/global/theme/app_theme.dart';
 
 /// Browse all card document types, grouped by section (Invitations,
 /// Business, Events, Profiles). Tapping one opens its template picker.
-class CategoriesPage extends StatelessWidget {
+class CategoriesPage extends BaseStatelessWidget {
   const CategoriesPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final columns = width >= 1000
         ? 4

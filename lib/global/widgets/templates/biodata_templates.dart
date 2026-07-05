@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:template/global/theme/app_theme.dart';
-import 'package:template/model/biodata_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
 /// Frame / decoration treatment for a biodata template.
 enum BiodataFrame {

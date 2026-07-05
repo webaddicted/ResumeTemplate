@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:template/global/theme/app_theme.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Visual configuration consumed by the shared blocks below.
 /// Each of the 10 templates builds one of these, so the content blocks

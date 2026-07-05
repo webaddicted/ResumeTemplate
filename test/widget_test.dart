@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:template/main.dart';
-import 'package:template/model/biodata_data.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 import 'package:template/global/theme/app_theme.dart';
 
 void main() {

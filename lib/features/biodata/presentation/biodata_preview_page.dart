@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/utils/biodata_pdf_generator.dart';
 import 'package:template/global/widgets/templates/biodata_templates.dart';
-import 'package:template/model/biodata_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
 /// Live biodata preview + template switcher + export.
-class BiodataPreviewPage extends StatefulWidget {
+class BiodataPreviewPage extends BaseStatefulWidget {
   const BiodataPreviewPage({super.key, required this.data});
 
   final BiodataData data;
@@ -17,7 +18,7 @@ class BiodataPreviewPage extends StatefulWidget {
   State<BiodataPreviewPage> createState() => _BiodataPreviewPageState();
 }
 
-class _BiodataPreviewPageState extends State<BiodataPreviewPage> {
+class _BiodataPreviewPageState extends BaseState<BiodataPreviewPage> {
   bool _switcherVisible = false;
   bool _exporting = false;
 
@@ -113,7 +114,7 @@ class _BiodataPreviewPageState extends State<BiodataPreviewPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final templateName = AppTheme.biodataTemplateById(d.templateId).name;
 
     return Scaffold(

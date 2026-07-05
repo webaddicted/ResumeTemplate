@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../model/ai_suggestion.dart';
+import 'package:template/features/resume/domain/ai_suggestion_model.dart';
 import '../theme/app_theme.dart';
 
 /// Inline AI suggestion shown above a form section, with the

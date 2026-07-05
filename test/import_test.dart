@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:archive/archive.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 import 'package:template/global/utils/file_import.dart';
 import 'package:template/global/utils/pdf_generator.dart';
 

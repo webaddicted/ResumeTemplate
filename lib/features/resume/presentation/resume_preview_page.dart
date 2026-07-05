@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/utils/pdf_generator.dart';
 import 'package:template/global/widgets/templates/all_templates.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Screen 8 — live resume preview + template switcher + export.
-class ResumePreviewPage extends StatefulWidget {
+class ResumePreviewPage extends BaseStatefulWidget {
   const ResumePreviewPage({super.key, required this.data});
 
   final ResumeData data;
@@ -17,7 +18,7 @@ class ResumePreviewPage extends StatefulWidget {
   State<ResumePreviewPage> createState() => _ResumePreviewPageState();
 }
 
-class _ResumePreviewPageState extends State<ResumePreviewPage> {
+class _ResumePreviewPageState extends BaseState<ResumePreviewPage> {
   bool _switcherVisible = false;
   bool _exporting = false;
 
@@ -113,7 +114,7 @@ class _ResumePreviewPageState extends State<ResumePreviewPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final templateName = AppTheme.templateById(d.templateId).name;
 
     return Scaffold(

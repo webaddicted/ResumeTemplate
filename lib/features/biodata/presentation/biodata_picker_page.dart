@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/features/resume/presentation/template_picker_page.dart'
     show templateGridColumns;
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/template_card.dart';
-import 'package:template/model/biodata_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
 /// Grid of 50 marriage biodata templates + sample loader.
 /// [initial] carries data auto-filled from an imported PDF/DOCX.
-class BiodataPickerPage extends StatefulWidget {
+class BiodataPickerPage extends BaseStatefulWidget {
   const BiodataPickerPage({super.key, this.initial});
 
   final BiodataData? initial;
@@ -18,7 +19,7 @@ class BiodataPickerPage extends StatefulWidget {
   State<BiodataPickerPage> createState() => _BiodataPickerPageState();
 }
 
-class _BiodataPickerPageState extends State<BiodataPickerPage> {
+class _BiodataPickerPageState extends BaseState<BiodataPickerPage> {
   late final BiodataData _data = widget.initial ?? BiodataData();
 
   void _loadSample() {
@@ -31,7 +32,7 @@ class _BiodataPickerPageState extends State<BiodataPickerPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final columns = templateGridColumns(width);
 

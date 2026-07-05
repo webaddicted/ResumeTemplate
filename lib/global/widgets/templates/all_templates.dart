@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/templates/resume_template_specs.dart';
 import 'package:template/global/widgets/templates/template_base.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Renders [data] with the template identified by [templateId].
 /// Hand-crafted ids map to dedicated widgets; generated ids (`gen_*`)

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/form_widgets.dart';
-import 'package:template/model/biodata_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
 /// 4-step marriage biodata wizard.
-class BiodataFormPage extends StatefulWidget {
+class BiodataFormPage extends BaseStatefulWidget {
   const BiodataFormPage({super.key, required this.data});
 
   final BiodataData data;
@@ -15,7 +16,7 @@ class BiodataFormPage extends StatefulWidget {
   State<BiodataFormPage> createState() => _BiodataFormPageState();
 }
 
-class _BiodataFormPageState extends State<BiodataFormPage> {
+class _BiodataFormPageState extends BaseState<BiodataFormPage> {
   static const _titles = [
     'Personal Details',
     'Education & Career',
@@ -50,7 +51,7 @@ class _BiodataFormPageState extends State<BiodataFormPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titles[_step - 1]),

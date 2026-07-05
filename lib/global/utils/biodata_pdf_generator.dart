@@ -6,7 +6,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/utils/pdf_generator.dart'
     show decodablePhoto, pdfTheme;
-import 'package:template/model/biodata_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
 
 /// On-device A4 PDF for the marriage biodata, tinted with the selected
 /// template's accent colour.

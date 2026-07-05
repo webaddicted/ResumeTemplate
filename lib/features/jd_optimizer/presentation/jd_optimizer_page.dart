@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
-import 'package:template/core/jd/jd_analyzer_service.dart';
+import 'package:template/features/jd_optimizer/data/jd_analyzer_service.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/ats_widgets.dart';
-import 'package:template/model/jd_analysis.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Feature 3 — Job Description based optimization.
 ///
 /// Paste a JD → see required skills / keywords / gap → Accept / Edit / Reject
 /// concrete additions that get applied to the resume.
-class JdOptimizerPage extends StatefulWidget {
+class JdOptimizerPage extends BaseStatefulWidget {
   const JdOptimizerPage({super.key, required this.data, this.initialJd = ''});
 
   final ResumeData data;
@@ -20,7 +21,7 @@ class JdOptimizerPage extends StatefulWidget {
   State<JdOptimizerPage> createState() => _JdOptimizerPageState();
 }
 
-class _JdOptimizerPageState extends State<JdOptimizerPage> {
+class _JdOptimizerPageState extends BaseState<JdOptimizerPage> {
   static const _engine = JdAnalyzerService();
 
   late final TextEditingController _jdController =
@@ -115,7 +116,7 @@ class _JdOptimizerPageState extends State<JdOptimizerPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final jd = _jd;
     return Scaffold(
       appBar: AppBar(title: const Text('Job Description Optimizer')),

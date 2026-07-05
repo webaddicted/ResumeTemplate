@@ -6,7 +6,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 import 'package:template/global/theme/app_theme.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Embeds the bundled Nunito family so PDFs render the same typography as
 /// the app and support glyphs Helvetica lacks (– ₹ …). Loaded once.

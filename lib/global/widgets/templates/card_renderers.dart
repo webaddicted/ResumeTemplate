@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/card_categories.dart';
 import '../../theme/app_theme.dart';
-import '../../../model/card_data.dart';
+import 'package:template/features/cards/domain/card_data_model.dart';
 import 'card_template_specs.dart';
 
 /// Renders [data] using its template + category. Dispatches to the family

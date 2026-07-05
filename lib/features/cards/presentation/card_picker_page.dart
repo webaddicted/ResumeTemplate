@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/card_categories.dart';
 import 'package:template/global/constant/routers_const.dart';
@@ -7,7 +8,7 @@ import 'package:template/global/widgets/template_card.dart';
 import 'package:template/global/widgets/templates/card_template_specs.dart';
 
 /// Grid of 50 designs for one card category + sample loader.
-class CardPickerPage extends StatefulWidget {
+class CardPickerPage extends BaseStatefulWidget {
   const CardPickerPage({super.key, required this.categoryId});
 
   final String categoryId;
@@ -16,7 +17,7 @@ class CardPickerPage extends StatefulWidget {
   State<CardPickerPage> createState() => _CardPickerPageState();
 }
 
-class _CardPickerPageState extends State<CardPickerPage> {
+class _CardPickerPageState extends BaseState<CardPickerPage> {
   late final DocCategory _cat = CardCategories.byId(widget.categoryId);
   late String _templateId = CardCatalogue.defaultTemplateId(widget.categoryId);
 
@@ -30,7 +31,7 @@ class _CardPickerPageState extends State<CardPickerPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final columns = width >= 1200
         ? 5

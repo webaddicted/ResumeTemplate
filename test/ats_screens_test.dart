@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:template/features/ats_analysis/presentation/ats_analysis_page.dart';
 import 'package:template/features/final_validation/presentation/final_ats_validation_page.dart';
 import 'package:template/features/jd_optimizer/presentation/jd_optimizer_page.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 Widget _host(Widget child) => GetMaterialApp(home: child);
 

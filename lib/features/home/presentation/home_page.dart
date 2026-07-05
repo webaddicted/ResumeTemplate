@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
@@ -8,14 +9,14 @@ enum DocumentType { resume, biodata }
 
 /// Entry screen — pick the document type (resume / marriage biodata) and
 /// optionally attach an existing PDF or DOCX to auto-fill the form.
-class HomePage extends StatefulWidget {
+class HomePage extends BaseStatefulWidget {
   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends BaseState<HomePage> {
   DocumentType _type = DocumentType.resume;
   ImportedFile? _file;
   bool _picking = false;
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final sideBySide = width >= 700;
 

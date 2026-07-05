@@ -5,7 +5,7 @@ import 'package:pdf/widgets.dart' as pw;
 
 import '../constant/card_categories.dart';
 import '../widgets/templates/card_template_specs.dart';
-import '../../model/card_data.dart';
+import 'package:template/features/cards/domain/card_data_model.dart';
 import 'pdf_generator.dart' show decodablePhoto, pdfTheme;
 
 /// On-device PDF for any card (invitation / event pass / business / profile).

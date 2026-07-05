@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/templates/template_base.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Header treatment for a generated resume template.
 enum ResumeHeaderVariant {

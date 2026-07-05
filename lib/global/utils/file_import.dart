@@ -5,8 +5,8 @@ import 'package:archive/archive.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
-import 'package:template/model/biodata_data.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/biodata/domain/biodata_data_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// A picked import file (PDF or DOCX) with its raw bytes.
 class ImportedFile {
@@ -27,14 +27,13 @@ class FileImport {
   /// Opens the platform file picker (PDF / DOCX only). Returns null when
   /// the user cancels. `withData: true` so it works on web too.
   static Future<ImportedFile?> pick() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'docx'],
-      withData: true,
     );
-    final file = result?.files.firstOrNull;
-    if (file == null || file.bytes == null) return null;
-    return ImportedFile(name: file.name, bytes: file.bytes!);
+    if (file == null) return null;
+    final bytes = await file.readAsBytes();
+    return ImportedFile(name: file.name, bytes: bytes);
   }
 
   /// Plain-text content of the file ('' when unreadable).

@@ -1,6 +1,6 @@
-import '../../model/ai_suggestion.dart';
-import '../../model/resume_data.dart';
-import '../constants/ats_keywords.dart';
+import 'package:template/features/resume/domain/ai_suggestion_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
+import 'package:template/global/constant/ats_keywords.dart';
 
 /// Contract for AI-assisted resume enhancement.
 ///

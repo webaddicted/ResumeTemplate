@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:get/get.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/template_card.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Responsive grid columns shared by both template pickers.
 int templateGridColumns(double width) => width >= 1200
@@ -16,7 +17,7 @@ int templateGridColumns(double width) => width >= 1200
 
 /// Screen 1 — grid of 50 resume templates + sample loader.
 /// [initial] carries data auto-filled from an imported PDF/DOCX.
-class TemplatePickerPage extends StatefulWidget {
+class TemplatePickerPage extends BaseStatefulWidget {
   const TemplatePickerPage({super.key, this.initial});
 
   final ResumeData? initial;
@@ -25,7 +26,7 @@ class TemplatePickerPage extends StatefulWidget {
   State<TemplatePickerPage> createState() => _TemplatePickerPageState();
 }
 
-class _TemplatePickerPageState extends State<TemplatePickerPage> {
+class _TemplatePickerPageState extends BaseState<TemplatePickerPage> {
   late final ResumeData _data = widget.initial ?? ResumeData();
 
   void _loadSample() {
@@ -38,7 +39,7 @@ class _TemplatePickerPageState extends State<TemplatePickerPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final columns = templateGridColumns(width);
 

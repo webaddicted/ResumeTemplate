@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../model/ats_report.dart';
-import '../../model/jd_analysis.dart';
+import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
+import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
 import '../theme/app_theme.dart';
 
 /// Big circular ATS score dial, coloured by band (red/orange/green).

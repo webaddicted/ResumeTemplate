@@ -1,7 +1,7 @@
-import '../../model/ats_report.dart';
-import '../../model/jd_analysis.dart';
-import '../../model/resume_data.dart';
-import '../constants/ats_keywords.dart';
+import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
+import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
+import 'package:template/global/constant/ats_keywords.dart';
 
 /// Deterministic, on-device ATS analyzer.
 ///

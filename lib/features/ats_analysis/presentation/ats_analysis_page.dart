@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:template/core/ats/ats_analyzer_service.dart';
-import 'package:template/core/jd/jd_analyzer_service.dart';
+import 'package:template/features/ats_analysis/data/ats_analyzer_service.dart';
+import 'package:template/features/jd_optimizer/data/jd_analyzer_service.dart';
+import 'package:template/global/base/base_stateful_widget.dart';
 import 'package:template/global/constant/routers_const.dart';
 import 'package:template/global/theme/app_theme.dart';
 import 'package:template/global/widgets/ats_widgets.dart';
-import 'package:template/model/ats_report.dart';
-import 'package:template/model/jd_analysis.dart';
-import 'package:template/model/resume_data.dart';
+import 'package:template/features/ats_analysis/domain/ats_report_model.dart';
+import 'package:template/features/jd_optimizer/domain/jd_analysis_model.dart';
+import 'package:template/features/resume/domain/resume_data_model.dart';
 
 /// Step 3 (NEW) — ATS analysis of an uploaded resume.
 /// Shows the score, the prioritised issue list, and a CTA to improve with AI.
-class AtsAnalysisPage extends StatefulWidget {
+class AtsAnalysisPage extends BaseStatefulWidget {
   const AtsAnalysisPage({super.key, required this.data});
 
   final ResumeData data;
@@ -20,7 +21,7 @@ class AtsAnalysisPage extends StatefulWidget {
   State<AtsAnalysisPage> createState() => _AtsAnalysisPageState();
 }
 
-class _AtsAnalysisPageState extends State<AtsAnalysisPage> {
+class _AtsAnalysisPageState extends BaseState<AtsAnalysisPage> {
   static const _ats = AtsAnalyzerService();
   static const _jdEngine = JdAnalyzerService();
 
@@ -55,7 +56,7 @@ class _AtsAnalysisPageState extends State<AtsAnalysisPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget initBuild(BuildContext context) {
     final issues = _report.sortedIssues;
     return Scaffold(
       appBar: AppBar(title: const Text('ATS Resume Analysis')),
