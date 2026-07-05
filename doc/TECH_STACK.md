@@ -55,7 +55,7 @@
 | State Management | GetX |
 | Networking | Dio + HTTP |
 | Local Storage | SharedPreferences + Encrypted Storage |
-| Backend | REST API |
+| Backend | On-device (no Firebase) |
 | Routing | GetX Named Routes |
 | DI | GetX Bindings |
 

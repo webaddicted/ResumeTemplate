@@ -43,26 +43,23 @@ lib/
 │   ├── routes.dart
 │   └── theme_controller.dart
 ├── features/
-│   ├── splash/presentation/
-│   ├── onboarding/
-│   ├── auth/
-│   ├── main/
-│   ├── home/
-│   ├── test_api/
-│   ├── profile/
-│   ├── settings/
-│   ├── legal/
-│   ├── help/
-│   └── about/
+│   ├── home/presentation/
+│   ├── resume/{data,domain,presentation}/
+│   ├── biodata/{domain,presentation}/
+│   ├── cards/{domain,presentation}/
+│   ├── ats_analysis/{data,domain,presentation}/
+│   ├── jd_optimizer/{data,domain,presentation}/
+│   └── final_validation/presentation/
 └── global/
     ├── base/
-    ├── constant/
     ├── apiutils/
+    ├── constant/
+    ├── extension/
+    ├── services/          # data_service, encryption_service
     ├── sp/
     ├── theme/
-    ├── utils/
-    ├── widgets/
-    └── services/
+    ├── utils/             # PDF generators, file import, env helpers
+    └── widgets/           # form widgets, ATS widgets, resume/card templates
 ```
 
 ---
@@ -96,7 +93,7 @@ lib/
 - **Engine:** GetX named routes (`GetMaterialApp`, `GetPage`)
 - **Constants:** `RoutersConst` in `global/constant/routers_const.dart`
 - **Registration:** `lib/controller/routes.dart`
-- **Main shell:** `IndexedStack` + bottom nav (mobile) / side menu (web)
+- **Entry:** `HomePage` at `/home` — mode picker for Resume, Biodata, and Cards flows
 
 ---
 
@@ -105,9 +102,9 @@ lib/
 ```dart
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
+  await dotenv.load(fileName: 'assets/env', isOptional: true);
   await initSDK();
-  runApp(const App());
+  runApp(const ResumeKitApp());
 }
 ```
 

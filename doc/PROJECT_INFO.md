@@ -41,7 +41,7 @@
 | Dart SDK | 3.x |
 | Architecture | GetX Feature-Based Clean Architecture |
 | State Management | GetX |
-| Backend | REST API |
+| Backend | On-device (no Firebase) |
 | Target Platforms | Android, iOS, Web |
 
 ### Short Description
@@ -60,8 +60,8 @@ See [APP_STORE_METADATA.md](APP_STORE_METADATA.md) for store listing copy, logo 
 
 | Field | Value |
 |-------|-------|
-| Tags | Flutter, GetX, Mobile App, Cross Platform |
-| Hashtags | #Flutter #Dart #GetX #MobileApp #CrossPlatform #ResumeKitPro |
+| Tags | Flutter, GetX, Resume, PDF, Biodata |
+| Hashtags | #Flutter #Dart #GetX #Resume #Biodata #ResumeKitPro |
 | Logo | `assets/images/logo.png` |
 | Primary Color | #519755 |
 
@@ -94,26 +94,23 @@ lib/
 │   ├── routes.dart
 │   └── theme_controller.dart
 ├── features/
-│   ├── splash/presentation/
-│   ├── onboarding/
-│   ├── auth/
-│   ├── main/
-│   ├── home/
-│   ├── test_api/
-│   ├── profile/
-│   ├── settings/
-│   ├── legal/
-│   ├── help/
-│   └── about/
+│   ├── home/presentation/
+│   ├── resume/{data,domain,presentation}/
+│   ├── biodata/{domain,presentation}/
+│   ├── cards/{domain,presentation}/
+│   ├── ats_analysis/{data,domain,presentation}/
+│   ├── jd_optimizer/{data,domain,presentation}/
+│   └── final_validation/presentation/
 └── global/
     ├── base/
-    ├── constant/
     ├── apiutils/
+    ├── constant/
+    ├── extension/
+    ├── services/
     ├── sp/
     ├── theme/
     ├── utils/
-    ├── widgets/
-    └── services/
+    └── widgets/
 ```
 
 ### Layer Rules
@@ -124,7 +121,7 @@ lib/
 | Features | `lib/features/<name>/` | Screens, feature controllers, repos, models |
 | Global | `lib/global/` | Shared base classes, utils, theme, widgets |
 | Assets | `assets/` | Images, fonts |
-| Config | `.env` | API URL, encryption key |
+| Config | `assets/env` | Optional API URL, encryption key |
 
 Each feature follows:
 
@@ -145,9 +142,9 @@ features/<feature>/
 **Startup order (mandatory):**
 
 1. `WidgetsFlutterBinding.ensureInitialized()`
-2. `await dotenv.load(fileName: '.env')`
-3. `await initSDK()` — SharedPreferences, encryption, platform guards, Firebase (if enabled)
-4. `runApp(const App())`
+2. `await dotenv.load(fileName: 'assets/env', isOptional: true)`
+3. `await initSDK()` — SharedPreferences, `EncryptionService`, encrypted SP, package info
+4. `runApp(const ResumeKitApp())`
 
 Never call `initSDK()` before `dotenv.load()` when encryption or API helpers read env vars.
 
@@ -163,12 +160,11 @@ Never call `initSDK()` before `dotenv.load()` when encryption or API helpers rea
 **Flow:**
 
 ```
-Splash → Onboarding (first launch) → Auth → Main shell (Home / Test API / Profile)
+Home → Resume | Biodata | Cards flow
+  Resume: templates → form → ATS → JD optimizer → final ATS → preview → PDF
+  Biodata: templates → form → preview → PDF
+  Cards: categories → templates → form → preview → PDF
 ```
-
-Secondary routes: settings, edit profile, legal, help, about.
-
-Web: tab routes sync via `WebUrlHelper`.
 
 ---
 
@@ -177,9 +173,9 @@ Web: tab routes sync via `WebUrlHelper`.
 | Component | Pattern |
 |-----------|---------|
 | App-wide | `InitialBinding` + `Get.put` / `Get.lazyPut` |
-| Feature screens | `BaseController` subclasses |
-| Theme | `ThemeController` (permanent) |
-| Reactive UI | `Obx` / `.obs` on controllers |
+| Feature screens | Stateful pages with local state (`BaseStatefulWidget`) |
+| Theme | `ThemeController` (lazy, fenix) |
+| Services | On-device analyzers (`AtsAnalyzerService`, `JdAnalyzerService`) |
 
 **Base classes (mandatory for features):**
 
@@ -191,21 +187,17 @@ Web: tab routes sync via `WebUrlHelper`.
 
 ## 8. Features
 
-### Splash & Onboarding
-- Branded splash with gradient
-- 3-slide onboarding with skip/next
+See [FEATURES.md](FEATURES.md) for the full route matrix.
 
-### Authentication
-- Login, register, OTP verification
-- Responsive split layout on desktop
-
-### Main Shell
-- Bottom nav (mobile) / side menu (web)
-- Tabs: Home, Test API, Profile
-
-### Settings & Legal
-- Dark mode toggle
-- Privacy policy, terms, help, about
+| Module | Key screens |
+|--------|-------------|
+| `home` | Mode picker, file import |
+| `resume` | Form steps, template picker, preview, ATS, JD optimizer, final validation |
+| `biodata` | Template picker, form, preview |
+| `cards` | Categories, template picker, form, preview |
+| `ats_analysis` | ATS score and issue list |
+| `jd_optimizer` | JD gap analysis and suggestions |
+| `final_validation` | Pre-export ATS gate |
 
 ---
 
@@ -220,16 +212,16 @@ Web: tab routes sync via `WebUrlHelper`.
 | `global/theme/` | AppTheme, AppTextStyle, ThemeController |
 | `global/utils/` | env_helper, platform_helper, widget_helper, validation |
 | `global/widgets/` | AppBar, SmartImage, CustomTextField, GradientButton |
-| `global/services/` | Encryption, Firebase services (when enabled) |
+| `global/services/` | `DataService`, `EncryptionService` |
 
 ---
 
 ## 10. API & Networking
 
-- **Client:** Dio via `ApiBaseHelper`
-- **Base URL:** `API_BASE_URL` from `.env` (via `envOr()`)
+- **Client:** Dio via `ApiBaseHelper` (available for future API use)
+- **Base URL:** `API_BASE_URL` from `assets/env` (via `envOr()`)
 - **Patterns:** `apiHandler()` for loading / error / empty / offline states
-- **Demo:** `test_api` feature — GET/POST jsonplaceholder
+- **On-device:** ATS and JD analysis run locally without network calls
 
 ---
 

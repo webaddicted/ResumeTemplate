@@ -7,6 +7,7 @@ import 'package:template/controller/routes.dart';
 import 'package:template/controller/theme_controller.dart';
 import 'package:template/global/constant/app_constant.dart';
 import 'package:template/global/constant/routers_const.dart';
+import 'package:template/global/services/encryption_service.dart';
 import 'package:template/global/sp/encrypted_sp_helper.dart';
 import 'package:template/global/sp/sp_helper.dart';
 import 'package:template/global/theme/app_theme.dart';
@@ -21,6 +22,7 @@ Future<void> main() async {
 
 Future<void> initSDK() async {
   await SPHelper.init();
+  await EncryptionService().init();
   await EncryptedSpHelper.init();
 
   try {

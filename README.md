@@ -11,9 +11,9 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)]()
 
-**Tags:** Flutter, GetX, Mobile App, Cross Platform
+**Tags:** Flutter, GetX, Resume, PDF, Biodata
 
-**Hashtags:** #Flutter #Dart #GetX #MobileApp #CrossPlatform #ResumeKitPro
+**Hashtags:** #Flutter #Dart #GetX #Resume #Biodata #ResumeKitPro
 
 ---
 
@@ -29,16 +29,15 @@
 
 ## ✨ Features
 
-- ✅ Splash & onboarding
-- ✅ Authentication (login, register, OTP)
-- ✅ Main shell with bottom navigation
-- ✅ Home with API integration
-- ✅ Test API demo (GET/POST)
-- ✅ Profile & edit profile
-- ✅ Settings (dark mode, legal, logout)
-- ✅ Offline detection
-- ✅ Responsive web layout
+- ✅ Resume builder with multi-step form and 100+ templates
+- ✅ ATS analysis and keyword scoring (on-device)
+- ✅ JD optimizer — gap analysis against job descriptions
+- ✅ Marriage biodata builder with templates
+- ✅ Cards — invitations, business cards, event passes, profiles
+- ✅ PDF export and share
+- ✅ Import existing resume files (PDF/DOCX)
 - ✅ Encrypted local storage
+- ✅ Responsive layout (mobile + web)
 
 ---
 
@@ -52,26 +51,23 @@ lib/
 │   ├── routes.dart
 │   └── theme_controller.dart
 ├── features/
-│   ├── splash/presentation/
-│   ├── onboarding/
-│   ├── auth/
-│   ├── main/
-│   ├── home/
-│   ├── test_api/
-│   ├── profile/
-│   ├── settings/
-│   ├── legal/
-│   ├── help/
-│   └── about/
+│   ├── home/presentation/
+│   ├── resume/{data,domain,presentation}/
+│   ├── biodata/{domain,presentation}/
+│   ├── cards/{domain,presentation}/
+│   ├── ats_analysis/{data,domain,presentation}/
+│   ├── jd_optimizer/{data,domain,presentation}/
+│   └── final_validation/presentation/
 └── global/
     ├── base/
-    ├── constant/
     ├── apiutils/
+    ├── constant/
+    ├── extension/
+    ├── services/
     ├── sp/
     ├── theme/
     ├── utils/
-    ├── widgets/
-    └── services/
+    └── widgets/
 ```
 
 ---
@@ -86,7 +82,7 @@ lib/
 | State Management | GetX |
 | Networking | Dio + HTTP |
 | Local Database | SharedPreferences + Encrypted Storage |
-| Backend | REST API |
+| Backend | On-device (no Firebase) |
 | Dependency Injection | GetX Bindings |
 | Routing | GetX Named Routes |
 | CI/CD | GitHub Actions (optional) |

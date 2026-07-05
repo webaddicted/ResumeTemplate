@@ -2,45 +2,50 @@
 
 ---
 
-## Core Features
+## Core Flows
 
-### Splash & Onboarding
-- Branded splash with gradient
-- 3-slide onboarding with skip/next
+### Home
+- Mode picker: Resume, Biodata, or Cards
+- Import existing resume files (PDF/DOCX)
 
-### Authentication
-- Login, register, OTP verification
-- Responsive split layout on desktop
+### Resume Builder
+- Multi-step form (personal info, experience, education, skills)
+- 100+ template picker with live preview
+- ATS analysis with keyword scoring
+- JD optimizer — paste a job description for gap analysis
+- Final ATS validation before export
+- PDF export and share
 
-### Main Shell
-- Bottom nav (mobile) / side menu (web)
-- Tabs: Home, Test API, Profile
+### Biodata Builder
+- Marriage biodata templates
+- Structured form (family, education, horoscope, photos)
+- Preview and PDF export
 
-### Settings & Legal
-- Dark mode toggle
-- Privacy policy, terms, help, about
+### Cards
+- Categories: invitations, business cards, event passes, profile cards
+- Template picker per category
+- Form + preview + PDF export
 
 ---
 
 ## Feature Matrix
 
-| Feature | Route | Tab / Push | Status |
-|---------|-------|------------|--------|
-| Splash | `/` | Auto | ✅ |
-| Onboarding | `/onboarding` | First launch | ✅ |
-| Login | `/login` | Auth gate | ✅ |
-| Register | `/register` | Auth | ✅ |
-| OTP | `/otp` | Auth | ✅ |
-| Main Shell | `/main` | Post-auth | ✅ |
-| Home | Tab 0 | In shell | ✅ |
-| Test API | Tab 1 | In shell | ✅ |
-| Profile | Tab 2 | In shell | ✅ |
-| Edit Profile | `/edit-profile` | Push | ✅ |
-| Settings | `/settings` | Push | ✅ |
-| Privacy Policy | `/privacy` | Push | ✅ |
-| Terms | `/terms` | Push | ✅ |
-| Help & Support | `/help` | Push | ✅ |
-| About | `/about` | Push | ✅ |
+| Feature | Route | Flow | Status |
+|---------|-------|------|--------|
+| Home | `/home` | Initial | ✅ |
+| Resume ATS Analysis | `/resume/ats` | Resume | ✅ |
+| Resume JD Optimizer | `/resume/jd` | Resume | ✅ |
+| Resume Final ATS | `/resume/final-ats` | Resume | ✅ |
+| Resume Templates | `/resume/templates` | Resume | ✅ |
+| Resume Form | `/resume/form` | Resume | ✅ |
+| Resume Preview | `/resume/preview` | Resume | ✅ |
+| Biodata Templates | `/biodata/templates` | Biodata | ✅ |
+| Biodata Form | `/biodata/form` | Biodata | ✅ |
+| Biodata Preview | `/biodata/preview` | Biodata | ✅ |
+| Card Categories | `/categories` | Cards | ✅ |
+| Card Templates | `/card/templates` | Cards | ✅ |
+| Card Form | `/card/form` | Cards | ✅ |
+| Card Preview | `/card/preview` | Cards | ✅ |
 
 ---
 
@@ -48,14 +53,14 @@
 
 | Capability | Implementation |
 |------------|----------------|
-| Dark mode | `ThemeController` + Settings |
-| Offline detection | `connectivity_plus` + `noInternetUI()` |
-| Shimmer loading | `shimmer` + `widget_helper` |
-| Image cache | `SmartImageWidget` + `cached_network_image` |
-| Encrypted prefs | `EncryptedSpHelper` |
-| Debug form fill | `DummyHelper` in `kDebugMode` |
-| Responsive UI | `ResponsiveLayout` |
-| Web URL sync | `WebUrlHelper` |
+| Dark theme | `AppTheme.dark()` + `ThemeController` |
+| Local persistence | `SPHelper` + `EncryptedSpHelper` |
+| Encryption service | `EncryptionService` (init in `initSDK`) |
+| PDF generation | `pdf_generator`, `biodata_pdf_generator`, `card_pdf_generator` |
+| AI suggestions | `AiEnhancementService` (on-device heuristics) |
+| ATS scoring | `AtsAnalyzerService`, `JdAnalyzerService` |
+| File import | `file_import.dart` |
+| Responsive UI | `responsive_framework` |
 
 ---
 

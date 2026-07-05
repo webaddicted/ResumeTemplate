@@ -56,7 +56,7 @@ ResumeKit Pro helps you create polished resumes and biodata documents entirely o
 ## Tags
 
 ```
-Flutter, GetX, Mobile App, Cross Platform
+Flutter, GetX, Resume, PDF, Biodata
 ```
 
 **Suggested categories:** Productivity, Utilities
@@ -66,7 +66,7 @@ Flutter, GetX, Mobile App, Cross Platform
 ## Hashtags
 
 ```
-#Flutter #Dart #GetX #MobileApp #CrossPlatform #ResumeKitPro
+#Flutter #Dart #GetX #Resume #Biodata #ResumeKitPro}}
 ```
 
 ---
@@ -74,7 +74,7 @@ Flutter, GetX, Mobile App, Cross Platform
 ## Keywords (ASO)
 
 ```
-flutter app, mobile, ResumeKit Pro
+resume builder, biodata, PDF export, ResumeKit Pro}}
 ```
 
 ---
